@@ -16,7 +16,7 @@ const UserController = {
       return user;
     } catch (error) {
       console.error("Error trying to create user: ", error);
-      throw new Error(error.errors[0].message);
+      throw new Error(error);
     }
   },
 
@@ -27,7 +27,7 @@ const UserController = {
       return users;
     } catch (error) {
       console.error("Error trying to list users: ", error);
-      throw new Error(error.errors[0].message);
+      throw new Error(error);
     }
   },
 

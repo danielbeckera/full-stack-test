@@ -29,8 +29,8 @@ const SessionController = {
 
       return token;
     } catch (error) {
-      console.error("Error creating user: ", error);
-      throw new Error(error.errors[0].message);
+      console.error(error);
+      throw new Error(error);
     }
   },
 };
