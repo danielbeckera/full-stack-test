@@ -1,22 +1,25 @@
 const express = require("express");
 const cors = require("cors");
+const db = require("./db");
 
 const routes = require("./routes");
+const app = express();
 
 const initializeServer = async () => {
-  const db = require("./db");
+  try {
+    await db.sequelize.sync({ alter: true });
+    console.log("Successfully synced models with database.");
 
-  const app = express();
+    app.use(cors());
+    app.use(express.json());
+    app.use(routes);
 
-  app.use(cors());
-  app.use(express.json());
-  app.use(routes);
-
-  await db.sequelize.sync();
-
-  app.listen(3001, () => {
-    console.log("server is running on port 3001");
-  });
+    app.listen(3001, () => {
+      console.log("server is running on port 3001");
+    });
+  } catch (error) {
+    console.error("Failed to sync models with the database: ", error);
+  }
 };
 
 initializeServer();
