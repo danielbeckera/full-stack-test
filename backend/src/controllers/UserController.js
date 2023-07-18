@@ -1,22 +1,22 @@
 const { hash } = require("bcryptjs");
-const User = require("../db/models/User");
+const { User } = require("../db");
 
 const UserController = {
-  async createUser(req, res) {
-    const { username, email, password } = req.body;
+  async createUser({ username, name, email, password }) {
     try {
       const hashedPassword = await hash(password, 8);
 
       const user = await User.create({
         username,
+        name,
         email,
         password: hashedPassword,
       });
 
-      res.status(201).json(user);
+      return user;
     } catch (error) {
       console.error("Erro ao criar usuário:", error);
-      res.status(500).json({ error: "Erro ao criar usuário" });
+      throw new Error(error.errors[0].message);
     }
   },
 };
