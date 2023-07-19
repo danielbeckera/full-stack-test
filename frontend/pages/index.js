@@ -56,10 +56,10 @@ const LoginPage = () => {
           type="submit"
           fullWidth
           variant="contained"
-          disabled={loading}
           color="success"
+          disabled={loading}
         >
-          {loading ? <CircularProgress /> : `Login`}
+          {loading ? <CircularProgress size={26} /> : `Login`}
         </Button>
       </form>
     </div>
