@@ -6,8 +6,8 @@ import Pagination from "@mui/material/Pagination";
 import { useCookies } from "react-cookie";
 import { CircularProgress } from "@mui/material";
 
-const Beers = ({ beers }) => {
-  const [beersData, setBeersData] = useState(beers);
+const Beers = () => {
+  const [beersData, setBeersData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
 
@@ -28,6 +28,8 @@ const Beers = ({ beers }) => {
 
   const getBeers = async (page = 1, beersSelected = []) => {
     const data = await fetchBeers(page);
+
+    console.log(data);
 
     if (data.length >= 80) {
       return getBeers(page + 1, [...beersSelected, ...data]);
@@ -54,6 +56,7 @@ const Beers = ({ beers }) => {
             <CircularProgress />
           </div>
         ) : (
+          beersData &&
           beersData
             ?.slice((page - 1) * 12, (page - 1) * 12 + 12)
             ?.map((beer) => <BeerCard beer={beer} key={beer.id} />)
@@ -69,34 +72,5 @@ const Beers = ({ beers }) => {
     </div>
   );
 };
-
-export async function getServerSideProps(context) {
-  try {
-    const mycookie = parse(context.req.headers.cookie || ``);
-
-    const { token } = mycookie;
-
-    const response = await fetch("http://localhost:3001/beers", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    const beers = await response.json();
-
-    return {
-      props: { beers },
-    };
-  } catch (error) {
-    console.error("Error fetching beers:", error);
-
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-}
 
 export default Beers;

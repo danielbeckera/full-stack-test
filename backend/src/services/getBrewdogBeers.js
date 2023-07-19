@@ -8,7 +8,8 @@ const getBrewdogBeers = async (pageNum = 1, beersPerPage = 10) => {
     }
     const data = await response.json();
     return data;
-  } catch {
+  } catch (error) {
+    console.error(error);
     throw new Error("Error fetching data.");
   }
 };
