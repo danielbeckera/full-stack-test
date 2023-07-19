@@ -47,3 +47,5 @@ O front-end deve apresentar pelo menos os seguintes requisitos:
 ## Como executar o projeto:
 
 Ir na pasta raiz do projeto e executar o comando `docker compose up`.
+
+A documentação da API e informações sobre as tecnologias utilizadas estão nos respectivos `README` do front/back.
