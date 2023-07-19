@@ -1,3 +1,10 @@
+## Tecnologias utilizadas
+
+- `NextJS` como framework.
+- `MaterialUI` para criação de componentes.
+- Lib `cookie` para manipulação de cookies
+- Lib `classnames` para classes condicionais de CSS.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
