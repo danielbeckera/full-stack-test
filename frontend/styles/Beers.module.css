@@ -1,0 +1,26 @@
+.beerWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 80px;
+}
+
+.beerList {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 12px;
+  max-width: 1000px;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 700px) {
+  .beerList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .beerList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
