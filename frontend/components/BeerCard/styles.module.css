@@ -1,0 +1,82 @@
+.wrapper {
+  max-width: 320px;
+  border-radius: 4px;
+  border: 1px solid black;
+  margin-top: 12px;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.beerInformation {
+  font-size: 16px;
+}
+
+.beerName {
+  text-align: center;
+  font-size: 20px;
+}
+
+.beerDescription {
+  align-self: center;
+  max-width: 240px;
+  margin-top: 12px;
+  color: darkgray;
+  font-size: 18px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.cardImage {
+  margin-top: 8px;
+  object-fit: contain;
+  max-width: 300px;
+  max-height: 200px;
+}
+
+.content {
+  padding: 12px;
+}
+
+.testando {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.seeMoreButton {
+  display: flex;
+  right: 0;
+  top: 0;
+  border: 0;
+  background-color: transparent;
+  font-size: 18px;
+  transition: color 0.2s;
+  margin-left: 14px;
+  color: #006076;
+}
+
+.truncated {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notTruncated {
+  animation: notTruncated 0.2s;
+  -webkit-line-clamp: 5;
+}
+
+.forceTruncate {
+  height: 36px !important;
+}
