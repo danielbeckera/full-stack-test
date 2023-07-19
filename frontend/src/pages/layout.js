@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-import SignIn from "../pages/index";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 

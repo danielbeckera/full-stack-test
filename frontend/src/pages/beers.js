@@ -50,7 +50,9 @@ const Beers = ({ beers }) => {
       <h1>Beers List</h1>
       <ul className={styles.beerList}>
         {loading ? (
-          <CircularProgress />
+          <div className={styles.beerWrapper}>
+            <CircularProgress />
+          </div>
         ) : (
           beersData
             ?.slice((page - 1) * 12, (page - 1) * 12 + 12)
